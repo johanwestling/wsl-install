@@ -1,6 +1,7 @@
 # Windows Subsystem for Linux (WSL) installer
 Install Windows Subsystem for Linux + Distro in a single Powershell command.
 
+## Usage
 1. Press **WIN + Q**.
 1. Enter **Powershell**.
 1. Press **CTRL + SHIFT + ENTER**.
@@ -15,4 +16,31 @@ Install Windows Subsystem for Linux + Distro in a single Powershell command.
 1. Run WSL installer Powershell script:
     ```
     .\wsl-install.ps1
+    ```
+    **Note!** Defaults to **Ubuntu 18.04**, see **Params** section for how to change that.
+
+## Params
+* **-Force = $False
+    ```
+    .\wsl-install.ps1 -Force="..."
+    ```
+* **-DistroName** _(string, default: "ubuntu")
+    ```
+    .\wsl-install.ps1 -DistroName="..."
+    ```
+* **-DistroPath** _(string, default: "C:\Program Files\WindowsApps")
+    ```
+    .\wsl-install.ps1 -DistroPath="..."
+    ```
+* **-DistroCachePath** _(string, default: ".\cache")
+    ```
+    .\wsl-install.ps1 -DistroCachePath="..."
+    ```
+* **-DistroVersion** _(string, default: "1804")
+    ```
+    .\wsl-install.ps1 -DistroVersion="..."
+    ```
+* **-DistroAppx** _(string, default: "CanonicalGroupLimited.Ubuntu18.04onWindows")
+    ```
+    .\wsl-install.ps1 -DistroAppx="..."
     ```
