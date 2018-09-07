@@ -20,27 +20,27 @@ Install Windows Subsystem for Linux + Distro in a single Powershell command.
     **Note!** Defaults to **Ubuntu 18.04**, see **Params** section for how to change that.
 
 ## Params
-* **-Force = $False
+* **-Force** _(Switch, default: false)
     ```
-    .\wsl-install.ps1 -Force="..."
+    .\wsl-install.ps1 -Force
     ```
-* **-DistroName** _(string, default: "ubuntu")
+* **-DistroName** _(String, default: "ubuntu")_
     ```
     .\wsl-install.ps1 -DistroName="..."
     ```
-* **-DistroPath** _(string, default: "C:\Program Files\WindowsApps")
+* **-DistroPath** _(String, default: "C:\Program Files\WindowsApps")_
     ```
     .\wsl-install.ps1 -DistroPath="..."
     ```
-* **-DistroCachePath** _(string, default: ".\cache")
+* **-DistroCachePath** _(String, default: ".\cache")_
     ```
     .\wsl-install.ps1 -DistroCachePath="..."
     ```
-* **-DistroVersion** _(string, default: "1804")
+* **-DistroVersion** _(String, default: "1804")_
     ```
     .\wsl-install.ps1 -DistroVersion="..."
     ```
-* **-DistroAppx** _(string, default: "CanonicalGroupLimited.Ubuntu18.04onWindows")
+* **-DistroAppx** _(String, default: "CanonicalGroupLimited.Ubuntu18.04onWindows")_
     ```
     .\wsl-install.ps1 -DistroAppx="..."
     ```
