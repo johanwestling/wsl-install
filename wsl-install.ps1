@@ -1,6 +1,6 @@
 param(
   [string]$DistroPath = $("C:\Program Files\WindowsApps"),
-  [string]$DistroCachePath = $(".\cache"),
+  [string]$DistroCachePath = $(".\"),
   [string]$DistroName = $("ubuntu"),
   [string]$DistroVersion = $("1804"),
   [string]$DistroAppx = $("CanonicalGroupLimited.Ubuntu18.04onWindows"),
