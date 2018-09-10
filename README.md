@@ -40,7 +40,7 @@ Used to override the default behavior of ```wsl-install.ps1``` script.
     .\wsl-install.ps1 -DistroPath="..."
     ```
 * **-DistroCachePath** 
-    _(String, default: ".\cache")_
+    _(String, default: ".\")_
     ```
     .\wsl-install.ps1 -DistroCachePath="..."
     ```
