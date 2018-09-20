@@ -42,5 +42,10 @@ if($DistroPackage){
   Write-Host "$OutputPrefix" -NoNewline -ForegroundColor Green
   Write-Host "Configuring $DistroName ($DistroVersion)..."
   Invoke-Expression "& '$DistroPath\$DistroPackage\$DistroName$DistroVersion.exe' install --root"
-  Invoke-Expression "& '$DistroPath\$DistroPackage\$DistroName$DistroVersion.exe'"
+
+  Write-Host "$OutputPrefix" -NoNewline -ForegroundColor Green
+  Write-Host "Lauching $DistroName ($DistroVersion)..."
+  Start-Process "$DistroPath\$DistroPackage\$DistroName$DistroVersion.exe"
+  
+  exit
 }
