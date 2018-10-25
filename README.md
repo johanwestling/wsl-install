@@ -1,5 +1,5 @@
 # Windows Subsystem for Linux (WSL) installer
-Install Windows Subsystem for Linux + Distro in a single Powershell command.
+Install Windows Subsystem for Linux + Distro with the minimal amount of Powershell commands.
 
 ## Usage
 
