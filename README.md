@@ -6,9 +6,9 @@ Install Windows Subsystem for Linux + Distro with the minimal amount of Powershe
 1. Press **WIN + Q**.
 1. Enter **Powershell**.
 1. Press **CTRL + SHIFT + ENTER**.
-1. Change directory to desired location:
+1. Change directory to your user folder (or other desired path):
     ```
-    cd C:\Users\WINUSR\DESIRED\PATH\
+    cd $HOME
     ```
 1. Download ```wsl-install.ps1``` script:
     ```
