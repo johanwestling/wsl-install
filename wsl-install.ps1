@@ -7,10 +7,14 @@ param(
   [switch]$Force = $False
 )
 
-$OutputPrefix = "$([char]27)[92m>>$([char]27)[0m"
+$OutputPrefix = "$([char]27)[92m→$([char]27)[0m"
 $OutputForced = " (-Force)"
 
-# Enable Windows Subsystem for Linux (WSL) in Windows features (reboot prompt if not already enabled).
+# Enable Hyper-V.
+Write-Host "$OutputPrefix Enabling Hyper-V..."
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
+# Enable WSL.
 Write-Host "$OutputPrefix Enabling Windows Susbsystem for Linux..."
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
@@ -41,6 +45,6 @@ if($DistroPackage){
 
   Write-Host "$OutputPrefix Lauching $DistroName ($DistroVersion)..."
   Start-Process "$DistroPath\$DistroPackage\$DistroName$DistroVersion.exe"
-  
+
   exit
 }
