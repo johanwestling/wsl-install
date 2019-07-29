@@ -3,9 +3,11 @@ param(
   [string]$DistroCachePath = ".\",
   [string]$DistroName = "ubuntu",
   [string]$DistroVersion = "1804",
-  [string]$DistroAppx = "CanonicalGroupLimited.Ubuntu18.04onWindows",
-  [switch]$Force = $False
+  [string]$DistroAppx = "CanonicalGroupLimited.Ubuntu18.04onWindows"
 )
+
+$DistroUrl = "https://aka.ms/wsl-$DistroName-$DistroVersion"
+$DistroFilename = "$DistroCachePath\$DistroName-$DistroVersion.appx"
 
 $OutputPrefix = "$([char]27)[92m→$([char]27)[0m"
 $OutputForced = " (-Force)"
@@ -18,21 +20,20 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Write-Host "$OutputPrefix Enabling Windows Susbsystem for Linux..."
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
-if(((Test-Path "$DistroCachePath\$DistroName-$DistroVersion.appx" -PathType Leaf) -eq $False) -or ($Force -eq $True)){
-  # Download WSL distrobution.
-  Write-Host "$OutputPrefix Downloading $DistroName ($DistroVersion)..." -NoNewLine
-  if($Force -eq $True){
-    Write-Host "$OutputForced" -ForegroundColor Yellow
-  } else {
-    Write-Host ""
-  }
-  Invoke-WebRequest -Uri "https://aka.ms/wsl-$DistroName-$DistroVersion" -OutFile "$DistroCachePath\$DistroName-$DistroVersion.appx" -UseBasicParsing
+if((Test-Path "$DistroFilename" -PathType Leaf) -eq $True){
+  Remove-Item "$DistroFilename"
 }
 
-if((Test-Path "$DistroCachePath\$DistroName-$DistroVersion.appx" -PathType Leaf) -eq $True){
+if((Test-Path "$DistroFilename" -PathType Leaf) -eq $False){
+  # Download WSL distrobution.
+  Write-Host "$OutputPrefix Downloading $DistroName ($DistroVersion)..."
+  Invoke-WebRequest -Uri "$DistroUrl" -OutFile "$DistroFilename" -UseBasicParsing
+}
+
+if((Test-Path "$DistroFilename" -PathType Leaf) -eq $True){
   # Install WSL distrobution.
   Write-Host "$OutputPrefix Installing $DistroName ($DistroVersion)..."
-  Add-AppxPackage -Path "$DistroCachePath\$DistroName-$DistroVersion.appx"
+  Add-AppxPackage -Path "$DistroFilename"
 }
 
 # Check if WSL distrobution is installed.

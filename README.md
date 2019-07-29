@@ -24,32 +24,27 @@ Install Windows Subsystem for Linux + Distro with the minimal amount of Powershe
 
 Used to override the default behavior of ```wsl-install.ps1``` script.
 
-* **-Force** 
-    _(Switch, default: false)_
-    ```
-    .\wsl-install.ps1 -Force
-    ```
-* **-DistroName** 
+* **-DistroName**
     _(String, default: "ubuntu")_
     ```
     .\wsl-install.ps1 -DistroName="..."
     ```
-* **-DistroPath** 
+* **-DistroPath**
     _(String, default: "C:\Program Files\WindowsApps")_
     ```
     .\wsl-install.ps1 -DistroPath="..."
     ```
-* **-DistroCachePath** 
+* **-DistroCachePath**
     _(String, default: ".\")_
     ```
     .\wsl-install.ps1 -DistroCachePath="..."
     ```
-* **-DistroVersion** 
+* **-DistroVersion**
     _(String, default: "1804")_
     ```
     .\wsl-install.ps1 -DistroVersion="..."
     ```
-* **-DistroAppx** 
+* **-DistroAppx**
     _(String, default: "CanonicalGroupLimited.Ubuntu18.04onWindows")_
     ```
     .\wsl-install.ps1 -DistroAppx="..."
