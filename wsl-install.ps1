@@ -20,20 +20,21 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Write-Host "$OutputPrefix Enabling Windows Susbsystem for Linux..."
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
-if((Test-Path "$DistroFilename" -PathType Leaf) -eq $True){
+if(Test-Path $DistroFilename){
+  Write-Host "$OutputPrefix Removing previously downloaded $DistroFilename..."
   Remove-Item "$DistroFilename"
 }
 
-if((Test-Path "$DistroFilename" -PathType Leaf) -eq $False){
+if((Test-Path $DistroFilename -PathType Leaf) -eq $False){
   # Download WSL distrobution.
   Write-Host "$OutputPrefix Downloading $DistroName ($DistroVersion)..."
-  Invoke-WebRequest -Uri "$DistroUrl" -OutFile "$DistroFilename" -UseBasicParsing
+  Invoke-WebRequest -Uri $DistroUrl -OutFile $DistroFilename -UseBasicParsing
 }
 
-if((Test-Path "$DistroFilename" -PathType Leaf) -eq $True){
+if(Test-Path $DistroFilename){
   # Install WSL distrobution.
   Write-Host "$OutputPrefix Installing $DistroName ($DistroVersion)..."
-  Add-AppxPackage -Path "$DistroFilename"
+  Add-AppxPackage -Path $DistroFilename
 }
 
 # Check if WSL distrobution is installed.
