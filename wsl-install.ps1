@@ -9,7 +9,7 @@ param(
 $DistroUrl = "https://aka.ms/wsl-$DistroName-$DistroVersion"
 $DistroFilename = "$DistroCachePath\$DistroName-$DistroVersion.appx"
 
-$OutputPrefix = "$([char]27)[92m→$([char]27)[0m"
+$OutputPrefix = "$([char]27)[92m>$([char]27)[0m"
 $OutputForced = " (-Force)"
 
 # Enable Hyper-V.
